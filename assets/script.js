@@ -1,10 +1,14 @@
 // var weatherCall = 'https://api.openweathermap.org/data/2.5/forecast?lat=' + lat + '&lon=' + lon + '&appid=516185ca1f9a1daf4c8b8f750a2ec35b'
 // var geoCall = 'http://api.openweathermap.org/geo/1.0/direct?q=' + cityName + stateCode + '&limit=1&appid=516185ca1f9a1daf4c8b8f750a2ec35b'
 
-function forecast () {
-    var cityName = $('#cityName').value
+$('#submit').on('click', forecast)
+
+function forecast (event) {
+    event.preventDefault()
+    // click event logs both the city name and state name
+    var cityName = $("input[name='cityName']").val()
     console.log(cityName)
-    var stateName = $('#stateName').value
+    var stateName = $('#stateName').val()
     console.log(stateName)
 
     fetch('http://api.openweathermap.org/geo/1.0/direct?q=' + cityName + ',' + stateName + ',US&limit=1&appid=516185ca1f9a1daf4c8b8f750a2ec35b')
@@ -17,6 +21,13 @@ function forecast () {
         var cityLon = data[0].lon
         console.log(cityLon)
 
+    if (stateName === 'default') {
+        window.alert("Please select a state") //checks that a state was selected
+    }else if (cityName == '') {
+        window.alert("Please enter the name of a city") //checks that something was entered
+    } else {
+        $('#searched').append('<li>' + cityName + ', ' + stateName + '</li>')
+    }
 
         fetch('https://api.openweathermap.org/data/2.5/forecast?units=imperial&lat=' + cityLat + '&lon=' + cityLon + '&appid=516185ca1f9a1daf4c8b8f750a2ec35b')
         .then(function(response){
@@ -33,4 +44,3 @@ function forecast () {
     })
 }
 
-forecast()
