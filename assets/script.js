@@ -13,11 +13,16 @@ fetch('http://api.openweathermap.org/geo/1.0/direct?q=Athens,Georgia,US&limit=1&
     console.log(cityLon)
 
 
-    fetch('https://api.openweathermap.org/data/2.5/forecast?lat=' + cityLat + '&lon=' + cityLon + '&appid=516185ca1f9a1daf4c8b8f750a2ec35b')
+    fetch('https://api.openweathermap.org/data/2.5/forecast?units=imperial&lat=' + cityLat + '&lon=' + cityLon + '&appid=516185ca1f9a1daf4c8b8f750a2ec35b')
     .then(function(response){
     return response.json()
     })
     .then(function (data){
-        console.log(data)
+        // console.log(data)
+        console.log("Today's forecast \n------------")
+        console.log(data.list[0].weather[0].main) //weather condition array path
+        console.log(data.list[0].main.temp + '°F') //temperature array path
+        console.log(data.list[0].wind.speed + 'MPH') //wind speed array path
+        console.log(data.list[0].main.humidity + '%') //humidity array path
     })
 })
