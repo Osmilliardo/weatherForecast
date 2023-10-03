@@ -8,3 +8,7 @@ h1 {
     background-color: blue;
     font-weight: bolder;
 }
+
+.list {
+    list-style-type: none;
+}

@@ -77,7 +77,7 @@
 
         <!-- second div is for the list of cities searched for -->
         <div>
-            <ul id="searched"></ul>
+            <ul class="list" id="searched"></ul>
         </div>
        </div>
 
@@ -85,13 +85,20 @@
        <div class="col-9">
         <!-- first div is for today's forecast -->
         <div>
-            <h2></h2>
+            <h2 id="selectedCity"></h2>
+            <ul class="list" id="todaysForecast"></ul>
         </div>
 
         <!-- second div is for the 5-day forecast -->
-        <div class="row">
+        <div>
             <h3>5-Day Forecast:</h3>
-            <ol class="col"></ol>
+            <ol class="row list">
+                <li class="col" id="dayOne"></li>
+                <li class="col" id="dayTwo"></li>
+                <li class="col" id="dayThree"></li>
+                <li class="col" id="dayFour"></li>
+                <li class="col" id="dayFive "></li>
+            </ol>
         </div>
        </div>
 
