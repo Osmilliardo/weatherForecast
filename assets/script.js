@@ -2,7 +2,7 @@
 // var geoCall = 'http://api.openweathermap.org/geo/1.0/direct?q=' + cityName + stateCode + '&limit=1&appid=516185ca1f9a1daf4c8b8f750a2ec35b'
 
 
-fetch('http://api.openweathermap.org/geo/1.0/direct?q=Athens,Georgia,US&limit=1&appid=516185ca1f9a1daf4c8b8f750a2ec35b')
+fetch('http://api.openweathermap.org/geo/1.0/direct?q=Sarasota,Florida,US&limit=1&appid=516185ca1f9a1daf4c8b8f750a2ec35b')
 .then(function(response){
     return response.json()
 })
