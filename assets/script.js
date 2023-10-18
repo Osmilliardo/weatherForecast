@@ -3,7 +3,7 @@
 var dayIndexArray = [7, 15, 23, 31, 39]
 var today = dayjs()
 var tomorrow = today.add(1, 'd')
-console.log(dayjs(tomorrow).format('M/D/YYYY'))
+// console.log(dayjs(tomorrow).format('M/D/YYYY'))
 
 $('#submit').on('click', forecast)
 
@@ -14,6 +14,7 @@ function defaultPage () {
     var defaultCity = 'https://api.openweathermap.org/data/2.5/forecast?units=imperial&lat=28.5421109&lon=-81.3790304&appid=516185ca1f9a1daf4c8b8f750a2ec35b' 
     fetch(defaultCity)
         .then(function(response){
+        console.log(response)
         return response.json()
         })
         .then(function(data){
@@ -26,8 +27,7 @@ function defaultPage () {
         $('#todaysForecast').append('<li>' + data.list[0].wind.speed + 'MPH' + '</li>')
         $('#todaysForecast').append('<li>' + data.list[0].main.humidity + '%' + '</li>')
     })
-    for ( i=0; i<dayIndexArray.length; i++) {
-        // console.log(i)
+    for (let i=0; i<dayIndexArray.length; i++) {
         var nextDay = tomorrow.add(i, 'd')
         // console.log(dayjs(nextDay).format('ddd'))
         $('#fiveDay').append('<li class="col">' + dayjs(nextDay).format('M/D/YYYY') + '</li>')
@@ -36,7 +36,7 @@ function defaultPage () {
                 return response.json()
             })
             .then(function(data){
-                // console.log($('#fiveDay').children().eq(i))
+                console.log(i)
             })
         
     }
