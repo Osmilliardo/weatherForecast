@@ -56,7 +56,7 @@ function forecast (event) {
     console.log(stateName)
 
     //this first fetch gets the coordinates of the city based on the name of the city and state
-    fetch('http://api.openweathermap.org/geo/1.0/direct?q=' + cityName + ',' + stateName + ',US&limit=1&appid=516185ca1f9a1daf4c8b8f750a2ec35b')
+    fetch('https://api.openweathermap.org/geo/1.0/direct?q=' + cityName + ',' + stateName + ',US&limit=1&appid=516185ca1f9a1daf4c8b8f750a2ec35b')
     .then(function(response){
      return response.json()
     })
